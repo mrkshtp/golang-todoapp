@@ -5,5 +5,5 @@ type User struct {
 	Version int
 	
 	FullName string
-	PhoneNumber *string
+	PhoneNumber string
 }
