@@ -1,9 +1,9 @@
 package domain
 
 type User struct {
-	ID int
-	Version int
+	ID          int
+	Version     int
 	
-	FullName string
+	FullName    string
 	PhoneNumber string
 }
