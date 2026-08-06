@@ -4,13 +4,13 @@ export
 export PROJECT_ROOT=$(shell pwd)
 
 env-up:
-	docker compose up -d todoapp-postgres
+	@docker compose up -d todoapp-postgres
 
 env-down:
-	docker compose down todoapp-postgres
+	@docker compose down todoapp-postgres
 
 env-cleanup:
-	docker compose down todoapp-postgres
+	docker compose down todoapp-postgres port-forwarder
 	rm -rf out/pgdata
 
 migrate-create:
@@ -41,5 +41,8 @@ env-port-close:
 
 
 todoapp-run:
+	export LOGGER_FOLDER=${PROJECT_ROOT}/out/logs && \
+	export POSTGRES_HOST=localhost && \
 	go run cmd/todoapp/main.go
+
 	
